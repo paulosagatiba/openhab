@@ -6,7 +6,7 @@ Clone this repository to the runtime directory of openhab.
 
 ```bash
 cd runtime
-git clone https://openhab.com/shivukumar/openhab.git
+git clone https://openhab.com/shivukumar/openhab.git .
 ```
 
 
