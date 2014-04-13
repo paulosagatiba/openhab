@@ -5,12 +5,18 @@ Group Living_Room   "Living Room"  <video> (gHome)
 Group Kitchen_Room "Kitchen Room" <kitchen> (gHome)
 Group Bed_Room     "Bed Room"     <bedroom> (gHome)
 
-Switch Light_Living_Room  "Light" (Living_Room)
-Switch Light_Kitchen_Room "Light" (Kitchen_Room)
-Switch Light_Bed_Room     "Light" (Bed_Room)
+
+Group:Switch:OR(ON, OFF)    Lights  (All)
+Switch Light_Living_Room  "Living Room Light [%s]" (Living_Room, Lights) { exec="ON:/bin/echo HELLO > /home/siu/living.txt, OFF:/usr/bin/touch /home/siu/living.txt" }
+Switch Light_Kitchen_Room "Kitchen Room Light [%s]" (Kitchen_Room, Lights)
+Switch Light_Bed_Room     "Bed Room Light [%s]" (Bed_Room, Lights)
+
+Switch Led_TV "LED TV [%s]" <tv> (All)
+//Switch Music_Player "Music Player is [%s]" <tv> (All)
+//Switch Movie_Player "Movie Player is [%s]" <tv> (All)
 
 
-
+Number Music_Player			"Music Player"					<network>
 
 //Group gGF 		(All)
 //Group gFF 		(All)
