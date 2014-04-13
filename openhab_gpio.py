@@ -62,7 +62,7 @@ def main():
     if(not test_mode):
         import RPi.GPIO as GPIO
         GPIO.setup(option.pin, GPIO.OUT)
-        GPIO.output(option.pin, option.set)
+        GPIO.output(option.pin, state)
         GPIO.cleanup()
 
     if(log_file != sys.stdout):
