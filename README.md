@@ -14,6 +14,6 @@ Running the openhab_gpio.py script
 ----------------------------------
 
 ```bash
-sudo python openhab_gpio.py --set=<pin number as per GPIO.BOARD mode> --set=<ON/OFF>
+sudo python openhab_gpio.py --pin=<pin number as per GPIO.BOARD mode> --set=<ON/OFF>
 ```
 
