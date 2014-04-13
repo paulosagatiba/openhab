@@ -17,3 +17,10 @@ Running the openhab_gpio.py script
 sudo python openhab_gpio.py --pin=<pin number as per GPIO.BOARD mode> --set=<ON/OFF>
 ```
 
+Running openhab server
+
+```bash
+cd runtime
+sudo bash
+sh start.sh
+```
