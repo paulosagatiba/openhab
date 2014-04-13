@@ -29,9 +29,9 @@ rule "Light_Living_Room update"
     	//say(f.lastModified())
         if(receivedCommand==ON) {
             say("Living Room Switch ON")
-            executeCommandLine("python /home/siu/test.py  ON")
+            executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=ON --log gpio.log")
         } else {
-            executeCommandLine("python /home/siu/test.py OFF")
+            executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=OFF --log gpio.log")
             say("Living Room Switch OFF")
         }
    	end
@@ -40,10 +40,13 @@ rule "Light_Kitchen_Room update"
     when 
         Item Light_Kitchen_Room received command
     then
-        if(receivedCommand==ON)
+        if(receivedCommand==ON) {
+            executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=ON --log gpio.log")
             say("Kitchen Room Switch ON")
-        else
+        } else {
+            executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=OFF --log gpio.log")
             say("Kitchen Room Switch OFF")
+        }
     end
     
 
@@ -51,10 +54,13 @@ rule "Light_Bed_Room update"
     when 
         Item Light_Bed_Room received command
     then
-        if(receivedCommand==ON)
+        if(receivedCommand==ON) {
+            executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=ON --log gpio.log")
             say("Bedg Room Switch ON")
-        else
+        } else {
+            executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=OFF --log gpio.log")
             say("Bedg Room Switch OFF")
+        }
 	end
 
 
