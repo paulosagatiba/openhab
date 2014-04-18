@@ -11,14 +11,14 @@ rule Startup
 when 
 	System started
 then
-	say("Welcome at openHab!")
+	//say("Welcome at openHab!")
 end
 
 rule Goodbye
 when 
 	System shuts down
 then
-	say("Good bye!")
+	//say("Good bye!")
 end
 
 rule "Light_Living_Room update"
@@ -26,12 +26,12 @@ rule "Light_Living_Room update"
         Item Light_Living_Room received command
     then
     	var File f = new File("/home/siu/test.s")
-    	//say(f.lastModified())
+    	////say(f.lastModified())
         if(receivedCommand==ON) {
             say("Living Room Switch ON")
-            executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=ON --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=ON --log gpio.log")
         } else {
-            executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=OFF --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=OFF --log gpio.log")
             say("Living Room Switch OFF")
         }
    	end
@@ -41,11 +41,11 @@ rule "Light_Kitchen_Room update"
         Item Light_Kitchen_Room received command
     then
         if(receivedCommand==ON) {
-            executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=ON --log gpio.log")
-            say("Kitchen Room Switch ON")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=ON --log gpio.log")
+            //say("Kitchen Room Switch ON")
         } else {
-            executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=OFF --log gpio.log")
-            say("Kitchen Room Switch OFF")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=OFF --log gpio.log")
+            //say("Kitchen Room Switch OFF")
         }
     end
     
@@ -55,14 +55,27 @@ rule "Light_Bed_Room update"
         Item Light_Bed_Room received command
     then
         if(receivedCommand==ON) {
-            executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=ON --log gpio.log")
-            say("Bedg Room Switch ON")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=ON --log gpio.log")
+            //say("Bedg Room Switch ON")
         } else {
-            executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=OFF --log gpio.log")
-            say("Bedg Room Switch OFF")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=OFF --log gpio.log")
+            //say("Bedg Room Switch OFF")
         }
 	end
 
+rule "Take Snap"
+	when 
+		Item Camera_Switch received command
+	then
+        if(receivedCommand==ON) {
+            executeCommandLine("raspistill -h 400 -w 400 -o webapps/images/rpi_camera.jpg ")
+			sendCommand(Camera_Switch, OFF)
+            //say("Bedg Room Switch ON")
+        } else {
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=OFF --log gpio.log")
+            //say("Bedg Room Switch OFF")
+        }
+	end
 
 rule "Select Music Player"
 	when
@@ -79,7 +92,7 @@ end
 //	when 
 //		Time cron "0/15 * * * * ?"
 //	then
-//		say(counter)
+//		//say(counter)
 //		counter = counter + 1
 //end	
 
@@ -138,7 +151,7 @@ end
 ////	when 
 ////		Item Weather_Temperature received update
 ////	then
-////		say("The temperature outside is " + Weather_Temperature.state.format("%d") + " degrees celsius")
+////		//say("The temperature outside is " + Weather_Temperature.state.format("%d") + " degrees celsius")
 ////end
 //
 ///**

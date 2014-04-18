@@ -9,13 +9,14 @@ sitemap demo label="Main Menu"
     Frame label="Surveillance"  {
         Text label="Snap" icon="camera" {
             Frame {
-				Image url="http://localhost:8080/images/splash-ipad-h.png" label="openHAB" 
+				Switch    item=Camera_Switch       
+				Image url="http://localhost:8080/images/rpi_camera.jpg" label="openHAB"  refresh=3000
             }
         }
 
         Text label="Webcam" icon="cctv_camera" {
             Frame {
-				Image url="http://localhost:8080/images/splash-ipad-h.png" label="openHAB" 
+				Video url="http://192.168.1.4:8090/?action=stream" label="openHAB" encoding="mjpeg"
             }
         }
     }
