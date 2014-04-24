@@ -77,6 +77,17 @@ rule "Take Snap"
         }
 	end
 
+rule "Webcam Surveillance"
+	when
+		Item Webcam_Switch received command
+	then
+		if(receivedCommand==ON) {
+			executeCommandLine("python webcam.py --start")
+
+		} else {
+			executeCommandLine("python webcam.py --stop")
+		}
+
 rule "Select Music Player"
 	when
 		Item Music_Player received command
