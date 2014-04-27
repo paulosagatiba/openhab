@@ -7,7 +7,7 @@ Group Bed_Room     "Bed Room"     <bedroom> (gHome)
 
 
 Group:Switch:OR(ON, OFF)    Lights  (All)
-Switch Light_Living_Room  "Living Room Light [%s]" (Living_Room, Lights) { exec="ON:/bin/echo HELLO > /home/siu/living.txt, OFF:/usr/bin/touch /home/siu/living.txt" }
+Switch Light_Living_Room  "Living Room Light [%s]" (Living_Room, Lights) 
 Switch Light_Kitchen_Room "Kitchen Room Light [%s]" (Kitchen_Room, Lights)
 Switch Light_Bed_Room     "Bed Room Light [%s]" (Bed_Room, Lights)
 Switch Camera_Switch	"Camera" <video> (All)
@@ -18,7 +18,10 @@ Switch Led_TV "LED TV [%s]" <tv> (All)
 //Switch Movie_Player "Movie Player is [%s]" <tv> (All)
 
 
-Number Music_Player			"Music Player"					<network>
+Number Music_Player		"Music Player"		<network> (All)
+
+Number Temperature 		"Temperature [%.1f °C]"	<temperature> (All)
+Number Humidity 		"Humidity [%.1f %%]"       <temperature>  (All)
 
 //Group gGF 		(All)
 //Group gFF 		(All)

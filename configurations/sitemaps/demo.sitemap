@@ -28,6 +28,11 @@ sitemap demo label="Main Menu"
         Selection item=Music_Player label="Music Player" mappings=[0=Zero, 1=one, 2=two, 3=three, 4=four]
     }
 
+    Frame label="Weather" {
+        Text item=Temperature
+        Text item=Humidity
+    }
+
 //	Frame label="Weather" {
 //		Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
 //			Frame {
