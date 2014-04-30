@@ -9,8 +9,8 @@ var Number counter = 1
 var Timer timer = null
 var BufferedReader f = null
 var String s = null
-var String pir_count = null
-var String pir_count_prev = null
+var String pir_count = "0"
+var String pir_count_prev = "0"
 
 
 rule "PIR Trigger Cron"
@@ -19,6 +19,7 @@ rule "PIR Trigger Cron"
 	then
 		counter = counter + 1
         
+        println("Current PIR trigger count: " + pir_count_prev)
         //say(counter)
         try {
             f = new BufferedReader(new FileReader("pir_count.txt"))
@@ -31,7 +32,7 @@ rule "PIR Trigger Cron"
             if(pir_count_prev != pir_count) {
                 sendCommand(Camera_Switch, ON)
                 pir_count_prev = pir_count
-                 println("Current PIR trigger count: " + s)
+                println("Current PIR trigger count: " + s)
             }
 
         } catch (IOException t) {
