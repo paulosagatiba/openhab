@@ -4,7 +4,7 @@ import os
 
 
 def main():
-    #os.system("./dht_program_name  > dht11.txt")
+    os.system("./Adafruit_DHT 11 27  > dht11.txt")
     f = open("dht11.txt")
     text = f.read()
     f.close()

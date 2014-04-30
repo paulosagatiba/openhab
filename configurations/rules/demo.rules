@@ -31,7 +31,7 @@ rule "PIR Trigger Cron"
             if(pir_count_prev != pir_count) {
                 sendCommand(Camera_Switch, ON)
                 pir_count_prev = pir_count
-                println("Current PIR trigger count: " + s)
+                 println("Current PIR trigger count: " + s)
             }
 
         } catch (IOException t) {
@@ -76,9 +76,9 @@ rule "Light_Living_Room update"
     	////say(f.lastModified())
         if(receivedCommand==ON) {
             say("Living Room Switch ON")
-            //executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=ON --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=16 --set=ON --log gpio.log")
         } else {
-            //executeCommandLine("sudo python openhab_gpio.py  --pin=11 --set=OFF --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=16 --set=OFF --log gpio.log")
             say("Living Room Switch OFF")
         }
    	end
@@ -88,10 +88,10 @@ rule "Light_Kitchen_Room update"
         Item Light_Kitchen_Room received command
     then
         if(receivedCommand==ON) {
-            //executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=ON --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=18 --set=ON --log gpio.log")
             //say("Kitchen Room Switch ON")
         } else {
-            //executeCommandLine("sudo python openhab_gpio.py  --pin=12 --set=OFF --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=18 --set=OFF --log gpio.log")
             //say("Kitchen Room Switch OFF")
         }
     end
@@ -102,10 +102,10 @@ rule "Light_Bed_Room update"
         Item Light_Bed_Room received command
     then
         if(receivedCommand==ON) {
-            //executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=ON --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=22 --set=ON --log gpio.log")
             //say("Bedg Room Switch ON")
         } else {
-            //executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=OFF --log gpio.log")
+            //executeCommandLine("sudo python openhab_gpio.py  --pin=22 --set=OFF --log gpio.log")
             //say("Bedg Room Switch OFF")
         }
 	end

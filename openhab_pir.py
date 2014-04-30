@@ -5,11 +5,11 @@ def print_detect(channel):
     count = f.read()
     count = int(count)
     count  += 1
-	print "PIR trigger detected count = " + str(count)
-    f.close()
-    f = open("pir_count.txt", "w")
-    f.write(str(count))
-    f.close()
+    print "PIR trigger detected count = " + str(count)
+f.close()
+f = open("pir_count.txt", "w")
+f.write(str(count))
+f.close()
 
 
 def main():

@@ -17,7 +17,7 @@ sitemap demo label="Main Menu"
         Text label="Webcam" icon="cctv_camera" {
             Frame {
 				Switch item=Webcam_Switch
-				Video url="http://192.168.1.5:8090/?action=stream" label="openHAB" encoding="mjpeg"
+				Video url="http://192.168.1.4:8090/?action=stream" label="openHAB" encoding="mjpeg"
             }
         }
     }
