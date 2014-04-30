@@ -119,8 +119,6 @@ rule "Take Snap"
 			sendCommand(Camera_Switch, OFF)
             //say("Bedg Room Switch ON")
         } else {
-            executeCommandLine("sudo python openhab_gpio.py  --pin=13 --set=OFF --log gpio.log")
-            //say("Bedg Room Switch OFF")
         }
 	end
 
