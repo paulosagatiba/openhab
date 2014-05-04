@@ -4,6 +4,7 @@ import org.openhab.model.script.actions.*
 import java.io.File
 import java.lang.*
 import java.io.*
+import java.util.*
 
 var Number counter = 1
 var Timer timer = null
@@ -60,14 +61,14 @@ rule Startup
 when 
 	System started
 then
-	//say("Welcome at openHab!")
+	println("Welcome at openHab!")
 end
 
 rule Goodbye
 when 
 	System shuts down
 then
-	//say("Good bye!")
+	println("Good bye!")
 end
 
 rule "Light_Living_Room update"
@@ -139,12 +140,14 @@ rule "Select Music Player"
 	when
 		Item Music_Player received command
 	then
+        executeCommandLine("python mp3player.py -i " + receivedCommand)
+        /*
 		switch(receivedCommand) {
 			case 0 : playStream(null)
 			case 1 : playStream("http://metafiles.gl-systemhaus.de/hr/hr3_2.m3u")
 			case 2 : playStream("http://mp3-live.swr3.de/swr3_m.m3u")
 			case 3 : playStream("http://edge.live.mp3.mdn.newmedia.nacamar.net/radioffh/livestream.mp3.m3u")
-		}
+		}*/
 end
 //rule "Crontest"
 //	when 

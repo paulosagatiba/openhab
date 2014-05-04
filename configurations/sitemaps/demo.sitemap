@@ -25,7 +25,7 @@ sitemap demo label="Main Menu"
 
     Frame label="Entertainment" {
         Switch    item=Led_TV       valuecolor=[Led_TV==ON="green", Led_TV==OFF="gray"]
-        Selection item=Music_Player label="Music Player" mappings=[0=Zero, 1=one, 2=two, 3=three, 4=four]
+        Selection item=Music_Player label="Music Player" mappings=[0=STOP, 1="08 - Tu Jaane Na (Reprise).mp3", 2="10 - Tu Jaane Na (Remix).mp3", 3="03 - Oh By God.mp3", 4="04 - Tera Hone Laga Hoon.mp3", 5="14 - Tu Jaane Na (Unplugged Version).mp3", 6="11 - Prem Ki Naiyya (Remix).mp3", 7="06 - Aa Jao Meri Tamanna.mp3", 8="12 - Tera Hone Laga Hoon (Remix).mp3", 9="07 - Follow Me.mp3", 10="02 - Tu Jaane Na.mp3", 11="13 - Aa Jao Meri Tamanna (Remix).mp3", 12="09 - Main Tera Dhadkan Teri (Remix).mp3", 13="01 - Main Tera Dhadkan Teri.mp3", 14="05 - Prem Ki Naiyya.mp3"]
     }
 
     Frame label="Weather" {
