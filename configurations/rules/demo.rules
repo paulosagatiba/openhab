@@ -6,8 +6,9 @@ import java.lang.*
 import java.io.*
 import java.util.*
 
+
 var Number counter = 1
-var Timer timer = null
+//var Timer timer = null
 var BufferedReader f = null
 var String s = null
 var String pir_count = "0"
@@ -32,6 +33,7 @@ rule "PIR Trigger Cron"
             pir_count = s
             if(pir_count_prev != pir_count) {
                 sendCommand(Camera_Switch, ON)
+                executeCommandLine("python make_call.py")
                 pir_count_prev = pir_count
                 println("Current PIR trigger count: " + s)
             }
@@ -46,10 +48,18 @@ rule "Temperature Humidity Update Cron"
 when 
     Time cron "0 0/1 * * * ?"
 then
-    executeCommandLine("python openhab_dht11.py")
+    executeCommandLine("sudo python openhab_dht11.py")
     var BufferedReader dht11_file = new BufferedReader(new FileReader("temperature.txt"))
-    postUpdate(Temperature, dht11_file.readLine())
+    var String temp = dht11_file.readLine()
+    postUpdate(Temperature, temp)
     dht11_file.close()
+	
+    var Number temp_int = Temperature.state as DecimalType
+
+
+    if(temp_int.intValue > 50) {
+        executeCommandLine("python fire_call.py")
+    }
 
     dht11_file = new BufferedReader(new FileReader("humidity.txt"))
     postUpdate(Humidity, dht11_file.readLine())
@@ -294,7 +304,7 @@ end
 //	Item Light_GF_Corridor_Ceiling received command
 //then
 //	if(receivedCommand==ON) {
-//		if(timer==null) {
+//		if(==null) {
 //			// first ON command, so create a timer to turn the light off again
 //			timer = createTimer(now.plusSeconds(10)) [|
 //				sendCommand(Light_GF_Corridor_Ceiling, OFF)
