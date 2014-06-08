@@ -32,8 +32,12 @@ rule "PIR Trigger Cron"
             s = f.readLine()
             pir_count = s
             if(pir_count_prev != pir_count) {
-                sendCommand(Camera_Switch, ON)
-                executeCommandLine("python make_call.py")
+                if(Status.state == ON) {
+                	executeCommandLine("python mp3player.py -i 1")
+                } else {
+                    sendCommand(Camera_Switch, ON)
+                	executeCommandLine("python make_call.py")
+                }
                 pir_count_prev = pir_count
                 println("Current PIR trigger count: " + s)
             }

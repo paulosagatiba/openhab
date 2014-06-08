@@ -17,6 +17,8 @@ Switch Led_TV "LED TV [%s]" <tv> (All)
 //Switch Music_Player "Music Player is [%s]" <tv> (All)
 //Switch Movie_Player "Movie Player is [%s]" <tv> (All)
 
+Switch Light_Bed_Room     "Bed Room Light [%s]" (Bed_Room, Lights)
+Switch Status      "Status [%s]" (All)
 
 Number Music_Player		"Music Player"		<network> (All)
 
