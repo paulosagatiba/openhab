@@ -2,7 +2,7 @@ from twilio.rest import TwilioRestClient
 
 # To find these visit https://www.twilio.com/user/account
 account_sid = "AC120f7d09bcdc0353956393d2d1904c2e"
-auth_token = "81382ffade7eda8b73e94a7cc5e5ee39"
+auth_token = "6c9591e6bacbe4d985073ec478f79a1f"
 
 client = TwilioRestClient(account_sid, auth_token)
 call = client.calls.create(
